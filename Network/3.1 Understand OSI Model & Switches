@@ -68,7 +68,7 @@
     Each port of a switch is mapped to the MAC adrs of the connected device
 
   3) How do layer 2 switches function?
-    Layer 2 switches are hardward-based and user the MAC address of each host computer's network adapter when deciding where to direct data frames
+    Layer 2 switches are hardward-based and use the MAC address of each host computer's network adapter when deciding where to direct data frames
     Ports on the switch are mapped to the specific MAC address of the device attached
 
   4) Virtual LAN(VLAN)
@@ -82,4 +82,75 @@
     The CAM table is stored in the memory of a switch - This memory is limited
 
 
-47:25 Networking Tutorials for Beginners
+4. Layer 3 Switching
+  1) Layer 3 - Network Layer
+  Controls the operations of routing and switching info to diff networks
+  Translates logical adrs or names to physical adrs
+  IP(internet protocol) is a Network Layer protocol
+  Devices that work at the network layer are routers and IP switches
+  Network Layer components: IP address, subnets
+  Unit of measurement : packets
+
+  They differ from Layer 2 switches because they direct data using IP adrs instead of MAC adrs
+    -This means they forward packets instead of frames
+  They perform the same functions as routers
+  The benefit is that they can forward packets faster than routers
+
+
+
+5. Upper OSI Layers
+  1) Layer 4 - Transport Layer
+  Ensure messages are delivered error-free, in sequence and with no losses or duplications.
+  Protocols that work at this layer
+    -segment messages
+    -ensure correct reassembly at the receiving end
+    -perform message acknowledgement and message traffic control
+
+  2) Connectionless Communications
+    End-to-end connection is not necessary before data is sent
+    Every packet that is sent has the destinaton adrs in the header
+    Sufficient to move independent packets, such as in streaming media
+    Datagram delivery is not guaranteed and lost packets cannot be resent
+
+  3) Connection-based Protocols
+    The Transport Layer contains both connection-oriented and connectionless protocols
+      -Transmission Control Protocol(TCP) provides a connection-based, reliable, byte-stream service to programs
+      -User Datagram Protocol(UDP) provides a connectionless, unreliable transport service
+
+      TCP is used for logging on, file and print sharing, replictaion of information btw domain controllers, transfer of browse lists, and other common functions. TCP can only be used for one-to-one communications.
+
+      UDP is often used for one-to-many communications, using broadcast or multicast IP datagrams
+
+    4) Ports
+      Layer 4 Protocol that a computer uses for data transmission.
+        -Logical communications endpoint for specific program on computers for delivery of data sent
+      There are a total of 65,536 ports, numbering between 0 and 65,535
+      Ports are defined by the Inter Assigned Numbers Authority or IANA and divided into categories.
+
+    5) Layer 5 - Session Layer
+    Manages session establishment, maintenance and termination btw network devices
+      -Example : when you log on and log off
+    This layer controls the name and adrs database for the OS
+    NetBIOS(Network Basic Input Output System) is a protocol at layer 5
+
+    6) Layer 6 - Presentation Layer
+    Translates the data format from sender to receiver in the various OSes that may be used
+    Presentation layer concepts include:
+      -character code conversion
+      -data compression
+      -data encryption
+    Redirectors work on this layer, such as mapped network drives that enable a compute to access file shares on a remote computer
+
+    7) Layer 7 - Application Layer
+    Serves as a window for users and application processes to access network services
+    End-user protocols such as FTP, SMTP, Telnet..
+
+
+6. TCP/IP Model
+It is similar to the OSI model
+Composed of only four layers
+
+Application Layer   HTTP, Telnet, FTP, SMNP, DNS
+Transport Layer     TCP, UDP, RTP
+Internet Layer      IP, ICMP, ARP, RARP
+Network Interface   Ethernet, Token Ring, Frame Relay
