@@ -1,0 +1,20 @@
+
+1. 스크린 샷
+                전체 화면 캡쳐       활성화 창 캡쳐       선택 영역 캡쳐
+그림 파일로 저장       Print          Alt + Print       Shit + Print
+클립 보드로 복사     Ctrl + Print  Ctrl + Alt + Print  Ctrl + Shift + Print
+
+
+2. GNOME 그놈(GNU Network Object Model Environment)
+그놈은 데스크톱 프로그램 집합의 일종이기도 하며 이를 개발하는 프로젝트의 이름이기도 하다. 컴퓨터 운영 체제의 최상위 계층에서 동작하는 그래픽 사용자 인터페이스로서 완전히 소스 공개 자유 소프트웨어로 이루어져 있으며 프로젝트의 규모는 국제적이다. 우분투, 페도라 등의 기본 데스크톱 환경으로서의 그놈과 솔라리스의 자바 데스크톱 시스템이 대표적이다.
+
+3.
+ctrl + 시작 + 위 화살표 : 최대화
+ctrl + 시작 + 아래     : Restore
+ctrl + alt + 0       : 최소화
+ctrl + alt + 숫자패드  : 해당 코너로 창 크기 바꿈
+
+
+4.
+
+lsb_release -a : 버전 확인

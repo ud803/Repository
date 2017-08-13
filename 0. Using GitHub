@@ -1,0 +1,42 @@
+#1. Installing
+sudo apt-get install git
+
+#2. Conf
+git config --global user.name "user_name"
+git config --global user.email "email_id"
+
+#3. Create local repository
+Create a folder in my system. This will serve as a local repository which will later be pushed onto the GitHub website.
+
+git init Mytest
+cd Mytest
+
+#4. Create a README file (optional)
+gedit README
+
+#5. Add repository files to an index
+git add README
+git add file1
+git add folder1
+...
+
+
+#6. Commit changes made to the index
+git commit -m "some_message"
+
+
+#7. Create a repository on GitHub
+Name of the repos should be the same as the repos on the local system.
+
+git remote add origin address
+
+#8. Pushing files in local repository to GitHub repository
+git push origin master
+
+
+** 그 외 명령어들
+mkdir git-repos
+cd git-repos
+git clone https://github.com/user_name/~.git
+
+GitHub에 있는 파일을 내 시스템으로 불러옴
