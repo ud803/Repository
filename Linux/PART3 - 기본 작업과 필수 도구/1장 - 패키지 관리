@@ -73,7 +73,8 @@
       dpkg --search file_name
       rpm -qf file_name (redhat)
 
-
+  11) 의존성 바로잡기
+      sudo apt-get -f install (더 조사가 필요함!)
 5.
 
 Apt (Advanced Packaging Tool)

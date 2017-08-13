@@ -1,0 +1,7 @@
+1. Install "Virtual Box"
+  가상 머신을 사용하는 이유는 그 내부에서 어떠한 문제가 생기더라도 본체에는 영향을 끼치지 않기 때문이다. 계속해서 배울 내용들을 연습하다보면 잘못된 오류가 발생할 수 있지만, 이는 가상 머신으로만 한정 된다.
+  인터넷에서 많은 것을 다운로드 할 것인데, extra layer of protection을 갖는 것은 중요하다.
+
+  방법1) FireFox - VirtualBox
+        dpkg --install 파일명
+  방법2)
