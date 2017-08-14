@@ -29,6 +29,15 @@
 
 
 4. 패키지 관리 작업
+개발자들은 저장소에 파일을 배포하고, 사용자들은 저장소에서 그 파일을 받아온다.
+update는 사용자의 list와 저장소의 list를 동기화하는 작업이고,
+upgrade는 그 동기화된 list를 바탕으로 실제 업그레이드를 진행하는 명령어.
+
+기본적으로 '우분투 공식 패키지 저장소'에 연결되어 있지만, 모든 프로그램이 이 저장소 안에 들어갈 순 없다. 그래서 서드 파티 소프트웨어를 위한 패키지 저장소에 따로 연결을 시켜줘야 한다.
+sudo add-apt-repository '주소'
+sudo add-apt-repository --remove '주소'
+
+
   1) 저장소에서 패키지 찾기
       apt-get update
       apt-cache search search_string
