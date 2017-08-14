@@ -1,0 +1,30 @@
+이전 장에서 우리는 권한 문제에 맞닥뜨렸다. 우리가 작성 중인 보고서 생성 스크립트가 실행될 때 사용자 권한에 따라 결과를 어떻게 조정할 수 있을까? 이 문제에 대한 해결책은 스크립트 내에서 테스트 결과에 따라 "방향을 바꾸는" 방법을 찾는 데 있을 것이다. 프로그래밍식으로 말하자면, 프로그램을 "분기"할 필요가 있다.
+
+
+1. If의 사용
+쉘을 사용하여 다음과 같이 로직을 짤 수 있다.
+
+    x=5
+    if [ $x = 5 ]; then
+      echo "x equals 5."
+    else
+      echo "x does not equal 5."
+    fi
+
+if의 사용법은 다음과 같은 구문을 따른다
+
+    if commands; then
+      commands1
+    elif commands; then
+      commands2
+    elif commands; then
+      commands3
+      .
+      .
+    else
+      commands
+    fi
+
+
+
+2. 종료 상태

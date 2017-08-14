@@ -37,6 +37,9 @@ upgrade는 그 동기화된 list를 바탕으로 실제 업그레이드를 진�
 sudo add-apt-repository '주소'
 sudo add-apt-repository --remove '주소'
 
+인증되지 않은 패키지의 경우 update가 되지 않는데, 이럴 때는 해당 제작사에서 제공하는 public key를 받아 연결시켜주면 된다.
+https://www.virtualbox.org/wiki/Linux_Downloads   < 참고
+
 
   1) 저장소에서 패키지 찾기
       apt-get update
