@@ -14,7 +14,9 @@ Because we have measurements for which we know the correct species of Iris, this
 '''
 # 필요한 라이브러리 호출
 import numpy as np
-import matplotlib.pyplot dataset
+import matplotlib.pyplot as plt
+import pandas as pd
+import mglearn
 
 # iris_dataset 변수에는 Bunch object가 저장된다. 딕셔너리와 비슷하게 key와 value로 구성되어 있음
 
@@ -37,7 +39,7 @@ print("target:\n{}".format(iris_dataset['target']))
 # type명령어를 통해 dataset의 data 의 타입 출력
 print("Type of data: {}".format(type(iris_dataset['data'])))
 
-# shape은 number of saples * number of features
+# shape은 number of samples * number of features
 print("Shape of data: {}".format(iris_dataset['data'].shape))
 
 # feature values for the first five samples
@@ -83,7 +85,7 @@ iris_dataframe = pd.DataFrame(X_train, columns=iris_dataset.feature_names)
 # create a scatter matrix from the dataframe, color by y_train
 grr = pd.plotting.scatter_matrix(iris_dataframe, c=y_train, figsize=(15,15), marker='o', hist_kwds={'bins':20}, s=60, alpha=0.8, cmap=mglearn.cm3)
 print("\n\n\n\n")
-# plt.show()
+#plt.show()
 # 위 #을 지워야 그림이 나타남!!!
 
 
