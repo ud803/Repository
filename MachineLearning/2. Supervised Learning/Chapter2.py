@@ -1,4 +1,189 @@
 '''
+Supervised learning is one of the most commonly used and successful types of machine learning. It's used whenever we want to predict a certain outcome from a given input, and we have examples of input/output pairs. Ourgoal is to make accurate predictions for new, never-before-seen data. Supervised learning often requires human effort to build the training set, but afterward automates and often speeds up an otherwise laborious or infeasible task.
+  There are 2 major types of supervised learning - Classification & Regression
+
+
+1. Classification
+The goal is to predict a "class label", which is a choice from a predefined list of possibilities. It is sometimes separated into binary classification, and multiclass classification.
+
+Classification
+  -Binary classification
+    Positive class / negative class
+    Positive = what the object of the study is, subjective matter
+  -Multiclass Classification
+
+2. Regression
+The goal is to predict a continuous number, or a floating-point number in programming terms. Predicting a person's annual income from their education, their age, and where they live.
+
+
+3. Basic Terms
+
+Generalization
+  If a model is able to make accurate predictions on unseen data, we say it is able to generalize from the training set to the test set. We want to build a model that is able to generalize as accurately as possible.
+
+  하지만, 아주 복잡한 모델을 세운다면 training set도 정확해질 수밖에 없다. 예를 들어 한 데이터셋을 보고 "45살 이상의, 남성이고, 아이를 3명 이하로 가진 사람"이 특정 제품을 구매한다는 사실을 알아냈다고 하자. 현재의 데이터셋에서는 이 사실이 100% 정확하지만 이는 그렇지 않다. 우리는 정확한 prediction을 하려는 것이 아니라, 새로운 고객이 얼마나 제품을 구매하려는 지 그 가능성을 보려는 것이다. 따라서 training set에서 100%의 정확도를 보이는 것이 사실 그렇게 중요하지 않다.
+
+Overfitting
+  위의 예처럼, 모델이 너무 복잡하게 되면 overfitting의 문제를 안게 된다. Overfitting occurs when you fit a model too closely to the particularities of the training set and obtain a model that works well on the training set but is not able to generalize to new data.
+
+Underfitting
+  반대로, if your model is too simple, then you might not be able to capture all the aspects of and variability in the data. Choosing too simple a model is called "underfitting"
+
+The more complex we allow our model to be, the better we will be able to predict the training data. However, if our model becomes too complex, we start focusing too much on each individual point in our training set, and the model will not generalize well to new data.
+
+따라서 "sweet spot"을 찾는 것이 중요!
+
+Relationship btw Model Complexity and Data size?
+  큰 데이터셋일수록 더 복잡한 모델을 세울 수 있게 해준다. 앞의 새 제품 예를 들어볼 때, 만약 "45살 이상의, 남성이고, 아이를 3명 이하로 가진 사람"의 조건에 부합하는 데이터가 10,000건 이상이 있다면, 실제로 저 모델은 overfitting 하지 않고 적당한 모델이 되는 것이다.
+'''
+
+
+
+# 수업에 사용할 예제
+
+
+'''
+
+1. Classification Data Set - forge dataset
+
+    # An exmaple of a synthetic two-class classification dataset
+
+    # "Forge Dataset" - two features
+
+
+    # Creates a scatter plot visualizing all of the data points in the set.
+    # First feature on the x-axis, second feature on the y.
+    # Color and shape of the dot indicates its classes.
+
+'''
+
+import mglearn
+import matplotlib.pyplot as plt
+
+# generate datset
+X, y = mglearn.datasets.make_forge()
+
+#plot dataset
+mglearn.discrete_scatter(X[:,0],X[:,1],y)
+plt.legend(["Class 0", "Class 1"], loc=4)
+plt.xlabel("First feature")
+plt.ylabel("Second feature")
+print("X.shape: {}".format(X.shape))    #shape = 26 datapoints, 2 fts
+plt.show()
+
+
+'''
+
+2. Regression Data set - wave dataset
+    # single input feature, continuous taret variable
+    # single feature on the x, target on the y
+
+'''
+
+import mglearn
+import matplotlib.pyplot as plt
+
+# generate dataset
+X, y = mglearn.datasets.make_wave(n_samples=40)
+plt.plot(X,y,'o')
+plt.ylim(-3,3)
+plt.xlabel("Feature")
+plt.ylabel("Target")
+print("X.shape: {}".format(X.shape))
+plt.show()
+
+
+
+
+'''
+3. Wisconsin Breast Cancer dataset
+
+  # large classification example
+
+  # 569 data points, 30 features each !
+
+'''
+
+import mglearn
+import matplotlib.pyplot as plt
+import numpy as np
+import scipy
+from sklearn.datasets import load_breast_cancer
+
+
+# Load Datasets
+cancer = load_breast_cancer()
+
+# Show Dataset Keys
+print("In[4]\n")
+print("cancer.keys(): \n{}".format(cancer.keys()))
+
+# Show All Datasets related to each Key
+# In[7]도 여기에 포함됨
+for _ in cancer :
+    print("cancer.{}: \n{}".format(_,cancer[_]))
+    print("\n\n\n")
+
+# Shape
+print("In[5]")
+print("Shape of cancer data: {}".format(cancer.data.shape))
+
+# Sample counts per class
+print("\n\nIn[6]")
+print("Sample counts per class:\n{}".format({n:v for n, v in zip(cancer.target_names, np.bincount(cancer.target))}))
+# 위 함수에 대한 설명은 python 문서로
+
+
+
+
+
+'''
+    4. Boston Housing dataset
+
+    # to predict the median value of homes in Boston neighborhoods
+
+    # 506 data points, 13 features
+
+    # Large Regression Dataset
+
+'''
+
+from sklearn.datasets import load_boston
+import mglearn
+
+boston = load_boston()
+
+print("In[8]\n")
+print("Data shape: {}".format(boston.data.shape))
+
+
+print(boston.keys())
+'''
+print("target\n",boston.target)
+print("data\n",boston.data)
+print("names\n",boston.feature_names)
+print(boston.DESCR)
+'''
+
+# 이 예제에서는 각 feature 뿐만 아니라, feature 들간의 상관관계도 보게 된다.
+# we'll consider the product of two features
+# Including derived feature like these is called "feature engineering"
+
+X, y = mglearn.datasets.load_extended_boston()
+print("X.shape: {}".format(X.shape))
+
+# 설명에서는 13C2 의 결과 값 + 원래 13개의 값 = 104라는데 나는 91이 나온다..?
+
+
+
+
+
+
+
+# kNN 시작
+
+
+'''
 k-NN algo is the simplest machine learning algorithm. Building the model consists only of storing the training dataset. To make a prediction for a new data point, the algo finds the closes data points in the training dataset - its "nearest neighbors."
 '''
 
@@ -144,7 +329,7 @@ for n_neighbors, ax in zip([1,3,9],axes):
     ax.set_xlabel("Feature")
     ax.set_ylabel("Target")
 axes[0].legend(["Model predictions", "Training data/target", "Test data/target"], loc="best")
-#plt.show()
+plt.show()
 
 
 
