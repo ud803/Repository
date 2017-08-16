@@ -34,4 +34,3 @@ The more complex we allow our model to be, the better we will be able to predict
 
 Relationship btw Model Complexity and Data size?
   큰 데이터셋일수록 더 복잡한 모델을 세울 수 있게 해준다. 앞의 새 제품 예를 들어볼 때, 만약 "45살 이상의, 남성이고, 아이를 3명 이하로 가진 사람"의 조건에 부합하는 데이터가 10,000건 이상이 있다면, 실제로 저 모델은 overfitting 하지 않고 적당한 모델이 되는 것이다.
-  

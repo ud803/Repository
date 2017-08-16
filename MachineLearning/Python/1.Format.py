@@ -12,3 +12,11 @@ for i in range(3,13) :
 str2 = "boy"
 
 print("I am a {}".format(str2))
+
+
+
+'''
+파이썬을 부분실행하고 싶을 땐
+sed -n '13,15p' filename | python
+을 사용한다!
+'''
