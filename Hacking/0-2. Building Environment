@@ -25,3 +25,27 @@
       ext4 partitions - a bit faster
       항상 /(root partition)이 존재해야 한다!!
       swap은 failsafe method 중 하나. ram 메모리가 부족하면 하드 드라이브를 빌려쓴다. 매우 느리지만 충돌을 막아줌
+
+      network mirror? -> No. 내가 업데이트 할 것이기 때문에.
+
+
+3. Network Connection
+  - VirtualBox - 장치에서 wifi 설정
+  - /etc/netowrk-config true로 설정
+  - (번외) 장치 -클립보드 공유 - 호스트에서 게스트로
+
+4. VB guest additions ( 게스트 확장 )
+  - kali linux로부터 package source 추가
+  - /etc/apt/sources.list 에 추가
+  - apt-get update && apt-get upgrade
+  - apt-get install -y dkms linux-headers-$(username -r)
+      dkms와 linux-header라는 두 개의 패키지 설치
+  - apt-get install -y virtual-box-guest-x11
+  - apt-get upgrade
+  - (VM) 장치 - 게스트 addition - 에러가 발생
+  - cd /media/
+  - ls; cd cdrom0/;
+  - cp VBox~.run /home/
+  - cd /home/; ls
+  - ./VBox~.run
+  - reboot;   init옵션도 있음. 하지만 reboot이 safer
