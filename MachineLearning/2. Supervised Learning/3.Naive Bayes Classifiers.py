@@ -1,4 +1,10 @@
 '''
+                            Naive Bayes Model
+'''
+
+
+
+'''
 나이브 베이즈 분류는 선형 모델과 매우 유사하다. 하지만, 훈련 과정이 훨씬 더 빠르다.
 하지만 그 대가로서 generalization 성능이 LogisticRegression이나 SVC보다는 떨어진다.
 
