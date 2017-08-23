@@ -182,6 +182,7 @@ plt.show()
     # 이는 자동 feature selection으로도 볼 수 있다.
     # 몇몇 특성을 0으로 하는 것은 모델을 이해하기 더 쉽게 해주고 가장 중요한 특징들만을 강조해준다.
 
+
 from sklearn.linear_model import Lasso
 
 lasso = Lasso().fit(X_train,y_train)

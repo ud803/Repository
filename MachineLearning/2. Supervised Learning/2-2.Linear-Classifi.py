@@ -65,6 +65,7 @@ if(where=='2'):
         # 조금 더 큰 C는 잘못 분류된 두 샘플에 더 집중한다.
         # 매우 큰 C는 모든 점을 정확히 분류하려고 한다. 하지만 큰 그림을 못 볼 수 있다.
         #       즉, C가 커지면 overfitting할 수 있다.
+        #
 
 
     '''
@@ -75,7 +76,7 @@ if(where=='2'):
     #3. Logistic Regression (심화)
 
     from sklearn.model_selection import train_test_split
-    from sklearn.datasets import load_breast_cancer
+    from sklearn.datasets import  load_breast_cancer
     cancer = load_breast_cancer()
     X_train, X_test, y_train, y_test = train_test_split(cancer.data, cancer.target, stratify=cancer.target, random_state=42)
     logreg = LogisticRegression().fit(X_train,y_train)
@@ -97,7 +98,7 @@ if(where=='2'):
     print("\nLOGREG0.01 score\n")
     print("Training set score: {:.3f}".format(logreg001.score(X_train,y_train)))
     print("Test set score: {:.3f}".format(logreg001.score(X_test,y_test)))
-        # 결과는 0.934 0.930
+        # 결과는 0.934 0.93
         # 이미 underfit한 모델에서 더 왼쪽으로(그림2-1기준) 가니까 정확도가 낮아졌다.
     # 마지막으로, 각 C에 따른 계수(w)들을 그림으로 살펴볼 것이다.
 
@@ -172,7 +173,7 @@ else :
 
     # training
     linear_svm = LinearSVC().fit(X,y)
-        # LinearSVC는 2개 이상의 클라스가 감지되면 multiclass 옵션을 실행한다
+        # LinearSVC는 2개 이상의 클래스가 감지되면 multiclass 옵션을 실행한다
         # default가 one-vs-rest 방식
         # 다른 방식도 지원함
     print("Coefficient shape: ", linear_svm.coef_.shape)
