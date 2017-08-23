@@ -31,6 +31,7 @@ clf = KNeighborsClassifier(n_neighbors=3)
 clf.fit(X_train, y_train)
 
 # Test set 예측 및 점수 측정
+print("\nkNN(n=3) score\n")
 print("Test set predictions: {}".format(clf.predict(X_test)))
 print("Test set accuracy: {:.2f}".format(clf.score(X_test,y_test)))
 
