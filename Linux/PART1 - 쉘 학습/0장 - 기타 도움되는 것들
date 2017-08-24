@@ -31,3 +31,7 @@ Shell에서 cd 명령어는 작동하지 않는다. child 프로세스에서만 
 echo -e를 해줘야 escape sequence를 인식한다
 
 8.
+
+j=${i/#0} 은 앞의 0을 없애주는 연산
+((++hours[j])) 쉘에서도 증가 연산이 가능하다!
+printf "%02d" $i 처럼 사용 가능!
