@@ -52,3 +52,8 @@ plt.show()
 
 
 print(digits.target_names)
+
+
+#
+# http://yann.lecun.com/exdb/mnist/
+# 위 사이트 참고!!!
