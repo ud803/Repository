@@ -20,3 +20,11 @@ print("I am a {}".format(str2))
 sed -n '13,15p' filename | python
 을 사용한다!
 '''
+
+'''
+[	startpoint	:	endpoint	:	step	]
+
+[:,:]
+앞의 :는 1차원 배열을
+뒤의 :는 2차원 배열을 의미
+'''

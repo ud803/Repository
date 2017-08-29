@@ -199,16 +199,83 @@ elif(where=="3") :
     mlp.fit(X_train_scaled, y_train)
 
     print("\nMLP Scaled Score\n")
-    print("Accuracy on training set: {:.2f}".format(mlp.score(X_train_scaled, y_train)))
-    print("Accuracy on test set: {:.2f}".format(mlp.score(X_test_scaled, y_test)))
-        #0.99 0.97
+    print("Accuracy on training set: {:.3f}".format(mlp.score(X_train_scaled, y_train)))
+    print("Accuracy on test set: {:.3f}".format(mlp.score(X_test_scaled, y_test)))
+        #0.991 0.965
         #결과는 매우 좋아졌지만, 경고 문구가 뜬다.
         #이는 모델을 학습하는데 쓰이는 'adam' 알고리즘 때문인데, 반복 수를 늘려야한다.
+
 
     mlp=MLPClassifier(max_iter=1000, random_state=0)
     mlp.fit(X_train_scaled, y_train)
 
     print("\nMLP Scaled Score (Iter=1000)\n")
-    print("Accuracy on training set: {:.2f}".format(mlp.score(X_train_scaled, y_train)))
-    print("Accuracy on test set: {:.2f}".format(mlp.score(X_test_scaled, y_test)))
-        #0.99 0.97
+    print("Accuracy on training set: {:.3f}".format(mlp.score(X_train_scaled, y_train)))
+    print("Accuracy on test set: {:.3f}".format(mlp.score(X_test_scaled, y_test)))
+        #0.993 0.972
+        #결과 값 사이에 어느정도 차이가 있으므로, 모델의 복잡도를 낮춰보자.
+        #alpha는 0.0001에서 1로 증가시킬 것이다!
+
+
+    mlp = MLPClassifier(max_iter=1000, alpha=1, random_state=0)
+    mlp.fit(X_train_scaled, y_train)
+
+    print("\nMLP Scaled Score (Iter=1000, Alpha=1)")
+    print("Accuracy on training set: {:.3f}".format(mlp.score(X_train_scaled, y_train)))
+    print("Accuracy on test set: {:.3f}".format(mlp.score(X_test_scaled, y_test)))
+
+
+#뉴럴 네트워크가 무엇을 학습했는지 분석하는 것은 가능하지만, 다른 방법들에 비해 더 까다롭다
+#한 가지 방법은 모델에 쓰인 가중치들을 보는 것이다.
+#다음 그림을 살펴보자.
+
+    plt.figure(figsize=(20,5))
+    plt.imshow(mlp.coefs_[0], interpolation='none', cmap='viridis')
+    plt.yticks(range(30), cancer.feature_names)
+    plt.xlabel("Columns in weight matrix")
+    plt.ylabel("Input feature")
+    plt.colorbar()
+    plt.show()
+        #행은 30개의 input feature를 의미하고,
+        #열은 100개의 hidden unit을 의미한다.
+        #밝은 색은 큰 양의 값을, 어두운 색은 음의 값을 의미한다.
+        #이와 반대로 hidden layer를 output layer에 연결하여 시각화할 수 있지만,
+        #더 해석하기가 힘들다.
+
+#MLPClassifier와 MLPRegressor가 손쉬운 인터페이스를 제공하지만, 이들은
+#뉴럴 네트워크에서 아주 일부분만을 보여준다.
+#더 유연하고 방대한 뉴럴 네트워크를 경험하고 싶다면 scikit-learn에서 벗어나
+#keras, lasagna, tensor-flow를 경험해보아야 한다.
+#이들은 GPU의 사용을 허용해주는데, 이는 10배~100배가량 더 빠른 속도를 내어 큰 데이터셋에 필수적이다.
+
+
+
+
+#3. Strengths & Weaknesses
+    #뉴럴 네트워크는 최첨단 모델로서 머신 러닝의 많은 분야에 적용되고 있다.
+    #가장 큰 장점은 큰 데이터에 포함된 정보를 찾아내고, 놀랍도록 복잡한 모델을 만든다는 것이다.
+    #충분한 연산시간과 데이터가 주어지고, 파라미터가 잘 조율된다면 뉴럴 네트워크는 다른 알고리즘들을 성능에서 압도한다.
+    #하지만 뉴럴 네트워크는 학습하는 데 오래 걸린다.
+    #또한 데이터의 전처리가 필요하고, SVM처럼 비슷한 종류의 데이터끼리 있을 때 좋다.
+    #우리가 이 장에서 배운 뉴럴 네트워크 모델은 빙산의 일각일 뿐이다.
+
+
+#4. Estimating complexity in neural networks.
+    #가장 중요한 파라미터는
+    #   1) number of layer
+    #   2) number of hidden units per layer
+    #   3) alpha
+    # 만약 100 feature가 있고 100 hidden unit이 있다면, 100*100=10000 weight이 있다. (input과 first hidden layer 사이에)
+    # 추가로 100*1 weight도 있다. (hidden layer와 output 사이에)
+
+    #파라미터를 조율하는 방법은
+    #   1)먼저 아주 큰 네트워크를 만들어서 "overfit"하도록 만든 뒤,
+    #   2)네트워크를 줄이거나 alpha를 늘려서 generalization하도록 만드는 것이다.
+
+    #이 장에서 우리는 뉴럴 네트워크의 정의와 개념에 대해서 배웠지만
+    #어떻게 동작하는지는 배우지 않았다.
+    #사실 'algorithm'이라는 키를 통해 다른 알고리즘을 사용할 수 있다.
+    #디폴트인 'adam'은 대부분의 환경에서 잘 동작하지만 스케일링에 민감하다.
+    #'l-bfgs'는 정교하지만 큰 데이터셋에서는 시간이 오래 걸린다.
+    #'sgd'는 많은 딥러닝 연구자들이 쓰는 것으로, 많은 추가적인 파라미터를 제공한다.
+    #MLP로 시작할 때는, adam과 l-bfgs를 쓰는 것을 추천한다.
