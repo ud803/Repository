@@ -140,7 +140,7 @@ if(where=='1'):
 
 
 else:
-    
+
     '''
                             Regression
     '''
@@ -215,3 +215,4 @@ DT에서 모델의 복잡도를 결정하는 파라미터는 'pre-pruning'이다
 3) 단점
 pre-pruning을 써도 overfit하는 경향이 있다. 따라서 generalization이 안좋다.
 그래서 다음에 배울 ensemble DT가 많이 쓰인다.
+'''
