@@ -36,6 +36,8 @@ if(where=="1") :
     #사실 수학적으로 가중합을 연속적으로 하는 것은 한 번 계산하는 것과 같다.
     #따라서 여기에 마지막 한 단계를 더 가야하는데,
     #비선형 함수를 결과에 적용시키는 것이다.
+    # relu 이전의 방식이 0과 1 사이의 값을 가졌다. hidden layer가 많아질수록 0에 수렴하게 되어서
+    # 0이상의 값만 사용하게 되었다.
     #   1) rectified linear unit (relu)
     #       0 미만의 값을 없앤다.
     #   2) tangens hyperbolicius (tanh)
@@ -86,6 +88,7 @@ if(where=="1") :
         #디폴트 값으로 100개의 hidden node를 사용한 결과이다.
         #작은 데이터셋임에도 불구하고 100개는 조금 크다.
         #숫자를 줄여보자. (= 모델의 복잡도를 낮춰보자.)
+        #simple = generalization = 부드러운 = 간단한
 
     mlp = MLPClassifier(solver='lbfgs', random_state=0, hidden_layer_sizes=[10])
     mlp.fit(X_train, y_train)
@@ -140,6 +143,7 @@ elif(where=="2") :
             mglearn.discrete_scatter(X_train[:,0], X_train[:,1], y_train, ax=ax)
             ax.set_title("n_hidden=[{}, {}]\nalpha={:.4f}".format(n_hidden_nodes, n_hidden_nodes, alpha))
     plt.show()
+        #모델이 간단할수록 더 부드러워진다.
         #이제 우리는 뉴럴 네트워크의 복잡도를 3가지 변수가 통제한다는 것을 알았다.
         # 1) hidden layer의 수
         # 2) 각 layer에 있는 hidden unit의 수
@@ -256,7 +260,7 @@ elif(where=="3") :
     #가장 큰 장점은 큰 데이터에 포함된 정보를 찾아내고, 놀랍도록 복잡한 모델을 만든다는 것이다.
     #충분한 연산시간과 데이터가 주어지고, 파라미터가 잘 조율된다면 뉴럴 네트워크는 다른 알고리즘들을 성능에서 압도한다.
     #하지만 뉴럴 네트워크는 학습하는 데 오래 걸린다.
-    #또한 데이터의 전처리가 필요하고, SVM처럼 비슷한 종류의 데이터끼리 있을 때 좋다.
+    #또한 데이터의 전처리가 필요하고, SVM처럼 비슷한 종류(homogeneous)의 데이터끼리 있을 때 좋다.
     #우리가 이 장에서 배운 뉴럴 네트워크 모델은 빙산의 일각일 뿐이다.
 
 
