@@ -93,10 +93,10 @@ scan()
   *데이터프레임의 모든 열은 같은 길이를 가져야 한다.
   1)
     new.data <- data.frame()  #빈 데이터 프레임 생성
-    new.data <- edit(new.data) #바뀐 내용을 저장
+    new.data <- edit(new.data) #내용 수정
   2)
     new.data <- data.frame()
-    fix(new.data)             #바뀐 내용 자동 저장
+    fix(new.data)             #바뀐 내용 수정
 
   car.dat <- data.frame(passengers, seatbelt)
       #벡터가 각 열에 저장!

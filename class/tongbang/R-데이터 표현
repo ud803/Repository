@@ -65,3 +65,38 @@ min(), max()
 quantile()
 var(), sd()
 cov(), cor()
+
+
+
+
+2. 분포
+Prefix
+  d : density, mass function
+  p : CDF
+  q : percentile function(quantile)
+  r : random variable
+
+beta(shape1, shape2)
+binom(size, prob)
+chisq(df)
+unif(min, max)
+exp(rate=1)
+f(df1,df2)
+gamma(shape,rate)
+geom(prob)
+hyper(m,n,k)
+nbinom(size,prob)
+norm(mean,sd)
+pois(lambda)
+t(df)
+weibull(shape,scale)
+
+  x <- rnorm(100)     #simulate 100 standard normal RVs
+  w <- rexp(1000,rate=.1) # simulate 1000 from Exp(theta=10)
+  dbinom(3,size=10,prob=.25) #P(X=3) for X ~ Bin(n=10, p=.25)
+  pbinom(3,size=10,prob=.25) #P(X<=3)
+  dpois(0:2, lambda=4)       #P(X=0), P(X=1), P(X=2) for X~Poisson
+  pnorm(12,mean=10,sd=2)     #P(X<=12) for x~N(10,2^2)
+  qnorm(.75, mean=10, sd=2)  #3rd quartile of N(10,2^2)
+  qchisq(.10, df=8)          #10th percentile of dist.
+  qt(.95, df=20)             #95th percentile of t(20)
