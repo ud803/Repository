@@ -22,3 +22,14 @@ grade :
 your anticipated grade (A, B, C, D, or F)
 4. Load in the stackloss dataset from within R and save the variables Water.Temp and
 Acid.Conc. in a data frame called tempacid .
+
+1. Simulate 20 observations from the binomial dist. with n=15, p=0.2
+2. Find the 20th percentile of the gamma dist. with a=2, theta =10
+3. Find P(T>2) for T~t8
+4. Plot the poisson mass function with lambda=4 over the range x=0~15
+5. Using monte carlo integration, approximate the following integral :
+  integral 0 to 2 : exp(x^3) dx
+  with n= 1,000,000
+6. simulate 100 observations from the normal dist. with mu=50, sd =4.
+Plot the empirical cdf for this sample and overlay the true cdf.
+7. Simulate 25 flips of a fair coin where the results are "heads" and "tails". (use sample() func)

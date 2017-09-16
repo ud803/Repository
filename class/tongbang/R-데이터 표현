@@ -100,3 +100,5 @@ weibull(shape,scale)
   qnorm(.75, mean=10, sd=2)  #3rd quartile of N(10,2^2)
   qchisq(.10, df=8)          #10th percentile of dist.
   qt(.95, df=20)             #95th percentile of t(20)
+  rbinom(20, size=10, prob=.2)# B(10,0.2)의 20회 관측 결과를 반환
+                              #반환값은 해당 사건이 몇 번 발생했는지!
