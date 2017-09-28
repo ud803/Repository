@@ -35,3 +35,16 @@ echo -e를 해줘야 escape sequence를 인식한다
 j=${i/#0} 은 앞의 0을 없애주는 연산
 ((++hours[j])) 쉘에서도 증가 연산이 가능하다!
 printf "%02d" $i 처럼 사용 가능!
+
+
+9. Grep 문법
+grep -n 'a' file.text   문자열과 행번호
+grep -l 'a' * 디렉토리 모든 파일
+grep -v 'a' * 모든 파일에서 a가 들어가지 않은 행
+grep -r 'a' * 디렉토리 및 서브디렉토리의 모든 파일에서 a가 들어간 것
+
+grep '^a' file.txt  a로 시작하는 행
+grep 'apple$' file.txt apple로 끝나는 행
+grep 'app*'  app가 들어간 ㅁ든 행
+grep 'a...e' file.txt a로 시작하고 e로 끝나는 다섯자 단어
+grep [a-d] file.txt a,b,c,d,로 시작하는 단어

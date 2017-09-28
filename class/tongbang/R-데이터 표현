@@ -102,3 +102,23 @@ weibull(shape,scale)
   qt(.95, df=20)             #95th percentile of t(20)
   rbinom(20, size=10, prob=.2)# B(10,0.2)의 20회 관측 결과를 반환
                               #반환값은 해당 사건이 몇 번 발생했는지!
+
+rnorm
+rexp
+rgamma
+rpois
+rweibull
+rcauchy
+rbeta
+rt
+rf
+rchisq
+rbinom
+rmultinom
+rgeom
+rhyper
+rlogis
+rlnorm
+rnbinom
+runif
+rwilcox

@@ -3,7 +3,21 @@
   setwd() : 작업공간설정
 
   ls() : 저장된 모든 변수를 보여준다
-  rm(parameter) : 지정된 변수를 제거한다
+    ls(pat ="m")  : pattern에 속하는 자료이름을 불러냄
+    ls(pat = "^m")
+    ls.str() : 오브젝트 디테일 (변수종류 같은 것) 출력
+    ls.str(pat="M", max.level=-1)
+  rm(x)
+    rm(list=ls()) : delete all the objects
+    rm(list=ls(pat="^m"))
+  mode(x) : 오브젝트의 타입 반환
+
+  mydata = read.table("data.dat")
+  mydata = scan("data.dat", what=list("", 0, 0))
+  mydata = read.fwf("data.txt", widths=c(1,4,3))
+  cat(x) : ??
+  z = scan()
+
 
   help(function)
   ?function
@@ -75,6 +89,18 @@ seq()
   seq(1,5,by=.5)
     # = seq(1,5,5)와 같음
   seq(1,5,length=7) /길이 7만큼 쪼개는 간격을 찾아서 자동 쪼갬
+
+sequence(a:b)
+  1부터 a까지, 1부터 b까지 순차적으로 벡터 생성
+  a = b이면 1부터 a까지
+
+gl(k, n)
+  k개의 숫자를 n개씩 반복함
+  gl(2, 6, label=c("Male", "Female"))
+
+expand.grid()
+  가능한 모든 조합을 data frame으로 만듦
+  expand.grid( h=c(60,80), w=c(100,300), sex=c("Male", "Female"))
 
 rep()
   rep(10,10) : 10을 10번 반복
