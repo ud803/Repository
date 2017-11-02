@@ -110,6 +110,7 @@ Y%*%t(r)
 
 diag(Y%*%t(r)) : diagonal vector 반환
 
+## aaply과도 같다!!
 Extracting statistics from the rows or columns of a matrix
 If X is a matrix, apply(X,1,f) is the result of applying f to each row of X; apply(X,2,f) to the columns
 
@@ -160,8 +161,8 @@ BMI = rbind(BMI, add_row)
 BMI[5,] = c("Male", 170, 60)
 rownames(BMI)[5] = "Yoon"
 
-
-
+#정말 중요한 함수!!!
+ddply(ToothGrowth, c("supp", "dose"), function(sub){ data.frame(length=mean(sub$len))})
 
 4.
 vec_n = c(1:10)
