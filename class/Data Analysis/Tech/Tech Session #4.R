@@ -37,3 +37,25 @@ glm(formula, data, family="binomial")
 
 #5. Poisson Regression for count dependent variable
 glm(formula, data, family="poisson")
+
+
+
+
+
+
+
+
+
+
+
+###### HOMEWORK ######
+
+a. write code
+b. write the name
+c. attach code
+d. code
+e. code
+f. explain
+g. code
+h. screen capture
+i. 
