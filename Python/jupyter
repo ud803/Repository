@@ -1,0 +1,14 @@
+sudo apt-get update
+sudo apt-get -y install python2.7 python-pip python-dev
+python --version
+pip --version
+
+sudo apt-get -y install ipython-notebook
+sudo -H pip install jupyter
+sudo -H pip install --upgrade pip
+sudo -H pip install jupyter
+jupyter notebook
+
+sudo apt-get install openssh-server
+ssh -L 8000:localhost:8888 uidam@192.168.0.6
+jupyter notebook
