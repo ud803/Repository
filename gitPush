@@ -1,0 +1,39 @@
+# This is a program to push git easily. made by uidam and for uidam.
+
+# Simple & easy. My first program!
+
+CURRENT_TIME=$(date +"%x %r %Z")
+cd ~/Repository1
+
+clear
+
+echo -e "\nThis is a program to push local data to master dir!"
+echo -e "\n--- Adding ---\n"
+git add -Av
+
+echo -e "\n\n--- Commiting ---\n"
+git commit -m "committed at $CURRENT_TIME"
+
+echo -e "\n"
+
+read -p "Do you want to Push git to Master dir? : " answer
+answer=$(echo "$answer"|tr A-Z a-z)
+
+while true; do
+	
+	
+	if [ $answer = "yes" -o $answer = "y" ]; then
+		echo -e "\n\n--- Pushing ---\n"
+		git push origin master
+		exit 0
+	elif [ $answer = "no" -o $answer = "n" ]; then
+		echo -e "\n >>>Program Terminating...\n"
+		exit 0
+	else
+		read -p "Wrong answer. Want to Push git?(y/n) : " answer
+		answer=$(echo "$answer"|tr A-Z a-z)
+		continue
+	fi
+done
+
+
