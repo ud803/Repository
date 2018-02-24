@@ -4,7 +4,7 @@ import re
 
 oldKey = None
 salesTotal = 0
-
+count = 0
 r = re.compile(r'\([\'\"]([\w \']+)[\'\"][ .,]*[\'\"](\d+.?\d*)[\'\"]\)')
 
 for line in sys.stdin :
@@ -14,7 +14,12 @@ for line in sys.stdin :
     if len(data) != 2 :
         continue
     thisKey, thisSale = data
+    thisSale = float(thisSale)
+    salesTotal += thisSale
+    count += 1
 
+print("{0}\t{1}".format(count, salesTotal))
+'''
     if oldKey and oldKey != thisKey :
         print ("{0}\t{1}".format(oldKey, salesTotal))
 
@@ -25,3 +30,4 @@ for line in sys.stdin :
 
 if oldKey != None :
     print ("{0}\t{1}".format(oldKey, salesTotal))
+'''
